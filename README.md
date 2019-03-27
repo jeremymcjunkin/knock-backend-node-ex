@@ -17,3 +17,7 @@
     [mergeStrings](./mergeStrings.js)
 
 * At Knock we deal with data vendors all across the country. Please write a function that can take varying JSON data input sources representing a property on a MLS (multiple listing service) and send them to our fictional CRM endpoint. You should make an http post call to the CRM endpoint in the function for a customer with the id `762910`. The function should take in one of the MLS JSON input sources at a time. Keep in mind that the data sources will grow with each new city we add so try and think through the implications of this. The CRM endpoint is not real so you will need to mock out the test calls.
+
+    `node main.js <input file> <mls> <customer id>`
+
+    `ex: node main.js mls_a.json ga_fmls 762910`
