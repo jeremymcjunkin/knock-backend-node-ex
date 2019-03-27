@@ -86,6 +86,28 @@ describe('Property', function () {
     });
   });
 
+  describe('test zipcode is too short', function () {
+    it("should throw error", function () {
+      try {
+        new Property('ga_fmls', '76257', '176 Milton Ave, Atlanta, GA 30317', 'Atlanta', 'GA', 9999);
+        assert.fail('should have thrown an error');
+      } catch (e) {
+        assert.strictEqual(e.message, 'zipcode must be 5 digits');
+      }
+    });
+  });
+
+  describe('test zipcode is too long', function () {
+    it("should throw error", function () {
+      try {
+        new Property('ga_fmls', '76257', '176 Milton Ave, Atlanta, GA 30317', 'Atlanta', 'GA', 100000);
+        assert.fail('should have thrown an error');
+      } catch (e) {
+        assert.strictEqual(e.message, 'zipcode must be 5 digits');
+      }
+    });
+  });
+
   describe('test list_price is undefined', function () {
     it("should throw error", function () {
       [undefined, null, ''].forEach(value => {

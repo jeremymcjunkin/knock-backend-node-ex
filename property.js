@@ -45,6 +45,9 @@ class Property {
       throw new Error('zip_code is required');
     }
     this.zip_code = zip_code;
+    if ((this.zip_code < 10000) || (this.zip_code > 99999)) {
+      throw new Error('zipcode must be 5 digits');
+    }
     if (!list_price) {
       throw new Error('list_price is required');
     }
