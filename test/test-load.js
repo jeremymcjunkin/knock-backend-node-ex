@@ -2,6 +2,30 @@ var load = require('../load.js');
 var assert = require('assert');
 describe('load', function () {
 
+  describe('test non existent input file', function () {
+    it("should throw error", function () {
+      try {
+        load('dne.json', 'ga_fmls');
+        assert.fail('should have thrown an error');
+      } catch (e) {
+        assert.strictEqual(e.message, 'ENOENT: no such file or directory, open \'dne.json\'');
+      }
+    });
+  });
+
+  describe('test non existent mls converter', function () {
+    it("should throw error", function () {
+      try {
+        load('mls_a.json', 'dne');
+        assert.fail('should have thrown an error');
+      } catch (e) {
+        assert.ok(e.message.startsWith('Cannot find module'));
+      }
+    });
+  });
+
+
+
   describe('test loading ga_fmls', function () {
     it("should be a valid property", function () {
       var properties = load('mls_a.json', 'ga_fmls');
