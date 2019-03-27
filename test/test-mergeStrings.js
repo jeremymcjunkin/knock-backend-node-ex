@@ -4,8 +4,6 @@ describe('mergeStrings', function () {
 
   describe('test both strings null', function () {
     it("should return null", function () {
-      var c = mergeStrings(undefined, undefined);
-      console.log(c);
       assert.strictEqual(mergeStrings(undefined, undefined), undefined);
     });
   });
